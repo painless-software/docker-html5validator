@@ -11,6 +11,4 @@ RUN pip3 install html5validator
 
 WORKDIR /app
 
-USER nobody
-
 CMD ["html5validator", "--root", "/app", "--also-check-css", "--also-check-svg", "--show-warnings"]
