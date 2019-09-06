@@ -8,8 +8,10 @@ html5validator
 ) [![GitHub PRs](https://img.shields.io/github/issues-pr-raw/painless-software/docker-html5validator.svg)](https://github.com/painless-software/docker-html5validator/pulls)
 
 Convenience wrapper for the [html5validator](https://pypi.org/project/html5validator/)
-Python package that can validate HTML, CSS and SVG files. Packs all required
-dependencies into a container image that you can use with your CI/CD pipeline.
+Python package that can validate HTML and CSS files. Packs all required dependencies
+into a container image that you can use with your CI/CD pipeline.
+
+**NOTE:** SVG validation is broken, at the moment, issue coming from upstream.
 
 Supported Tags
 --------------
@@ -23,7 +25,7 @@ Supported Tags
 Usage
 -----
 
-Validate all HTML, CSS and SVG files in your current local directory:
+Validate all HTML and CSS files in your current local directory:
 
 ```console
 docker run --rm -v $(pwd):/app:ro painless/html5validator
