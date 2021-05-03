@@ -7,7 +7,9 @@ RUN mkdir -p /usr/share/man/man1 \
  && apt-get install -y openjdk-11-jre-headless \
  && apt-get clean
 
-RUN pip3 install html5validator
+COPY requirements.txt ./
+
+RUN pip3 install -r requirements.txt
 
 WORKDIR /app
 
