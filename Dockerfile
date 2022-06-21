@@ -5,11 +5,12 @@ FROM python:3-slim
 RUN mkdir -p /usr/share/man/man1 \
  && apt-get update \
  && apt-get install -y openjdk-11-jre-headless \
+ && rm -r /usr/share/doc/* /usr/share/man/* \
  && apt-get clean
 
 COPY requirements.txt ./
 
-RUN pip3 install -r requirements.txt
+RUN python3 -m pip install -r requirements.txt
 
 WORKDIR /app
 
