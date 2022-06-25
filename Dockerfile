@@ -1,6 +1,8 @@
 FROM python:3-slim
 
-# NOTE: We need to do an mkdir as long the openjdk package is broken 8-/
+ENV DEBIAN_FRONTEND noninteractive
+
+# NOTE: We need to do a mkdir as long the openjdk package is broken 8-/
 
 RUN mkdir -p /usr/share/man/man1 \
  && apt-get update \
