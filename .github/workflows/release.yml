@@ -1,4 +1,4 @@
-name: Release Image on Docker Hub
+name: Release Image
 
 on:
   push:
@@ -18,10 +18,10 @@ jobs:
         docker run --rm -v $(pwd):/app:ro html5validator html5validator --svg tests/fixtures/valid.svg
     - name: Tag the image
       run: |
-        docker tag html5validator docker.io/painless/html5validator:${{ env.GITHUB_REF_NAME }}
-        docker tag html5validator docker.io/painless/html5validator:latest
+        docker tag html5validator painless/html5validator:${{ github.ref_name }}
+        docker tag html5validator painless/html5validator:latest
     - name: Push the image
       run: |
         docker login docker.io -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
-        docker push docker.io/painless/html5validator --all-tags
+        docker push painless/html5validator --all-tags
         docker logout
