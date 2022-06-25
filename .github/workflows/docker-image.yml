@@ -1,0 +1,21 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+    tags: [ "*" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the container image
+      run: docker build . -t html5validator
+    - name: Verify validation (HTML, CSS and SVG)
+      run: |
+        docker run --rm -v $(pwd):/app:ro html5validator html5validator --html tests/fixtures/valid.html
+        docker run --rm -v $(pwd):/app:ro html5validator html5validator --css tests/fixtures/valid.css
+        docker run --rm -v $(pwd):/app:ro html5validator html5validator --svg tests/fixtures/valid.svg
