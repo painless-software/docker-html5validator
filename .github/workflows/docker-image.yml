@@ -19,3 +19,10 @@ jobs:
         docker run --rm -v $(pwd):/app:ro html5validator html5validator --html tests/fixtures/valid.html
         docker run --rm -v $(pwd):/app:ro html5validator html5validator --css tests/fixtures/valid.css
         docker run --rm -v $(pwd):/app:ro html5validator html5validator --svg tests/fixtures/valid.svg
+    - if: env.GITHUB_REF_TYPE == 'tag'
+      name: Tag and push the image
+      run: |
+        docker tag html5validator docker.io/painless/html5validator:${{ env.GITHUB_REF_NAME }}
+        docker tag html5validator docker.io/painless/html5validator:latest
+        docker login docker.io -u "${{ secrets.DOCKERHUB_USERNAME }}" -p "${{ secrets.DOCKERHUB_PASSWORD }}"
+        docker push docker.io/painless/html5validator --all-tags
