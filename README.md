@@ -23,14 +23,16 @@ into a container image that you can use with your CI/CD pipeline.
 Supported Tags
 --------------
 
-- [![latest][badge-latest]][dockerfile]
-- [![0.4.2][badge-0.4.2]][dockerfile]
-- [![0.4.0][badge-0.4.0]][dockerfile]
+- [![latest][badge-latest]][dockerfile-main]
+- [![0.4.2][badge-0.4.2]][dockerfile-0.4.2]
+- [![0.4.0][badge-0.4.0]][dockerfile-0.4.0]
 
 [badge-latest]: https://img.shields.io/badge/-latest-blue.svg?colorA=22313f&colorB=4a637b&logo=docker
 [badge-0.4.2]: https://img.shields.io/badge/-0.4.2-blue.svg?colorA=22313f&colorB=4a637b&logo=docker
 [badge-0.4.0]: https://img.shields.io/badge/-0.4.0-blue.svg?colorA=22313f&colorB=4a637b&logo=docker
-[dockerfile]: https://github.com/painless-software/docker-html5validator/blob/main/Dockerfile
+[dockerfile-main]: https://github.com/painless-software/docker-html5validator/blob/main/Dockerfile
+[dockerfile-0.4.2]: https://github.com/painless-software/docker-html5validator/blob/0.4.2/Dockerfile
+[dockerfile-0.4.0]: https://github.com/painless-software/docker-html5validator/blob/0.4.0/Dockerfile
 
 Usage
 -----
